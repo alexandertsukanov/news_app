@@ -1,4 +1,4 @@
-package com.example.kotlinspringexample.dto
+package com.tsukanov.news.dto
 
 data class AuthorDto(
     val id: Long = 0,

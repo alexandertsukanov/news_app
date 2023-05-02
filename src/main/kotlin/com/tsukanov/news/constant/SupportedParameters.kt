@@ -1,4 +1,4 @@
-package com.example.kotlinspringexample.constant
+package com.tsukanov.news.constant
 
 enum class SupportedParameters(val nameAsStringInLowerCase: String) {
     AUTHOR("author"),

@@ -1,9 +1,9 @@
-package com.example.kotlinspringexample.specification
+package com.tsukanov.news.specification
 
-import com.example.kotlinspringexample.constant.SupportedParameters.*
-import com.example.kotlinspringexample.entity.Article
-import com.example.kotlinspringexample.entity.Author
-import com.example.kotlinspringexample.entity.Keyword
+import com.tsukanov.news.constant.SupportedParameters.*
+import com.tsukanov.news.entity.Article
+import com.tsukanov.news.entity.Author
+import com.tsukanov.news.entity.Keyword
 import org.springframework.data.jpa.domain.Specification
 import javax.persistence.criteria.CriteriaBuilder
 import javax.persistence.criteria.CriteriaQuery

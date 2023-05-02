@@ -1,7 +1,7 @@
-package com.example.kotlinspringexample.controller
+package com.tsukanov.news.controller
 
-import com.example.kotlinspringexample.dto.ArticleDto
-import com.example.kotlinspringexample.service.ArticleService
+import com.tsukanov.news.dto.ArticleDto
+import com.tsukanov.news.service.ArticleService
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 import org.springframework.web.bind.annotation.*

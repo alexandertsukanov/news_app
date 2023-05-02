@@ -1,4 +1,4 @@
-package com.example.kotlinspringexample.dto
+package com.tsukanov.news.dto
 
 data class KeywordDto(
     val id: Long = 0,

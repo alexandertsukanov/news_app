@@ -1,11 +1,11 @@
-package com.example.kotlinspringexample.service
+package com.tsukanov.news.service
 
-import com.example.kotlinspringexample.constant.SupportedParameters
-import com.example.kotlinspringexample.dto.ArticleDto
-import com.example.kotlinspringexample.mapper.toArticle
-import com.example.kotlinspringexample.mapper.toArticleDto
-import com.example.kotlinspringexample.repository.ArticleRepository
-import com.example.kotlinspringexample.specification.ArticleSpecification
+import com.tsukanov.news.constant.SupportedParameters
+import com.tsukanov.news.dto.ArticleDto
+import com.tsukanov.news.mapper.toArticle
+import com.tsukanov.news.mapper.toArticleDto
+import com.tsukanov.news.repository.ArticleRepository
+import com.tsukanov.news.specification.ArticleSpecification
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 import org.springframework.http.HttpStatus

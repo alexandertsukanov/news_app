@@ -1,11 +1,11 @@
-package com.example.kotlinspringexample.mapper
+package com.tsukanov.news.mapper
 
-import com.example.kotlinspringexample.dto.ArticleDto
-import com.example.kotlinspringexample.dto.AuthorDto
-import com.example.kotlinspringexample.dto.KeywordDto
-import com.example.kotlinspringexample.entity.Article
-import com.example.kotlinspringexample.entity.Author
-import com.example.kotlinspringexample.entity.Keyword
+import com.tsukanov.news.dto.ArticleDto
+import com.tsukanov.news.dto.AuthorDto
+import com.tsukanov.news.dto.KeywordDto
+import com.tsukanov.news.entity.Article
+import com.tsukanov.news.entity.Author
+import com.tsukanov.news.entity.Keyword
 
 fun Article.toArticleDto(): ArticleDto =
     ArticleDto(

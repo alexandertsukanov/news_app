@@ -1,4 +1,4 @@
-package com.example.kotlinspringexample.entity
+package com.tsukanov.news.entity
 
 import java.time.LocalDate
 import javax.persistence.*

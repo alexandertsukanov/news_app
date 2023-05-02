@@ -1,4 +1,4 @@
-package com.example.kotlinspringexample.dto
+package com.tsukanov.news.dto
 
 import java.time.LocalDate
 
