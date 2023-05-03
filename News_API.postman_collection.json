@@ -1,0 +1,151 @@
+{
+	"info": {
+		"_postman_id": "ed41e676-ab25-4953-be50-b553b80278db",
+		"name": "News API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1519910"
+	},
+	"item": [
+		{
+			"name": "Get One Article By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{localhost}}/feed/articles/0",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"feed",
+						"articles",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Articles",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{localhost}}/feed/articles?sort=some_parameter,asc&page=1&size=1&from_date=2023-05-02&to_date=2023-05-03&author=name&keyword=name",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"feed",
+						"articles"
+					],
+					"query": [
+						{
+							"key": "sort",
+							"value": "some_parameter,asc"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "size",
+							"value": "1"
+						},
+						{
+							"key": "from_date",
+							"value": "2023-05-02"
+						},
+						{
+							"key": "to_date",
+							"value": "2023-05-03"
+						},
+						{
+							"key": "author",
+							"value": "name"
+						},
+						{
+							"key": "keyword",
+							"value": "name"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Article",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 1,\n    \"header\": \"One\",\n    \"text\" : \"spme text\",\n    \"shortDescription\": \"another\",\n    \"author\": [\n        {\n            \"id\": 1,\n            \"name\": \"name\"\n        }\n    ],\n    \"keyword\": []\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}/feed/article/1",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"feed",
+						"article",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save Article",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"header\": \"One\",\n    \"shortDescription\": \"one\",\n    \"test\": \"Very big text\",\n    \"author\": [\n        {\n            \"name\": \"John\"\n        }\n    ],\n    \"keyword\": [\n        {\n            \"name\": \"i_am_keyword\"\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}/feed/articles",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"feed",
+						"articles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Article",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{localhost}}/feed/articles/1",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"feed",
+						"articles",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
