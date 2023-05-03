@@ -1,6 +1,5 @@
 package com.tsukanov.news.service
 
-import com.tsukanov.news.constant.SupportedParameters
 import com.tsukanov.news.dto.ArticleDto
 import com.tsukanov.news.mapper.toArticle
 import com.tsukanov.news.mapper.toArticleDto
@@ -10,6 +9,7 @@ import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Service
+import org.springframework.transaction.annotation.Transactional
 import org.springframework.web.server.ResponseStatusException
 
 
@@ -18,20 +18,31 @@ class ArticleService(private val articleRepository: ArticleRepository) {
     fun findOneById(id: Long): ArticleDto {
         return articleRepository
             .findById(id)
-            .orElseThrow { ResponseStatusException(HttpStatus.NOT_FOUND, "Not Found") }
+            .orElseThrow { ResponseStatusException(HttpStatus.NOT_FOUND) }
             .toArticleDto()
     }
 
+    fun getAllArticles(parameters: Map<String, String>, pageable: Pageable): Page<ArticleDto> {
+        val articleSpecification = ArticleSpecification(parameters)
+        return articleRepository.findAll(articleSpecification, pageable).map { it.toArticleDto() }
+    }
+    @Transactional
+    fun updateArticle(id: Long, articleDto: ArticleDto): ArticleDto {
+        val findById = articleRepository.findById(id)
+            .orElseThrow { ResponseStatusException(HttpStatus.NOT_FOUND)  }
+        val updatedUser = articleDto.copy(id = findById.id)
+        return articleRepository.save(updatedUser.toArticle()).toArticleDto()
+    }
+    @Transactional
     fun saveArticle(article: ArticleDto): ArticleDto {
         return articleRepository.save(article.toArticle()).toArticleDto()
     }
 
-    fun getAllArticles(parameters: Map<String, String>, pageable: Pageable): Page<ArticleDto> {
-        parameters.forEach{ (key, _) ->
-            if (key !in SupportedParameters.namesAsString) throw ResponseStatusException(HttpStatus.BAD_REQUEST,
-                """The next parameters currently supported by the system: ${SupportedParameters.namesAsString}""")
+    @Transactional
+    fun deleteArticle(id: Long) {
+        if (!articleRepository.existsById(id)) {
+            throw ResponseStatusException(HttpStatus.NOT_FOUND)
         }
-        val articleSpecification = ArticleSpecification(parameters)
-        return articleRepository.findAll(articleSpecification, pageable).map { it.toArticleDto() }
+        articleRepository.deleteById(id)
     }
 }

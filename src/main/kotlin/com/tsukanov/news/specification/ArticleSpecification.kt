@@ -1,6 +1,6 @@
 package com.tsukanov.news.specification
 
-import com.tsukanov.news.constant.SupportedParameters.*
+import com.tsukanov.news.constant.ArticleSupportedParameters.*
 import com.tsukanov.news.entity.Article
 import com.tsukanov.news.entity.Author
 import com.tsukanov.news.entity.Keyword

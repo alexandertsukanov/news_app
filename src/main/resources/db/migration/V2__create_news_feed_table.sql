@@ -4,7 +4,7 @@ CREATE TABLE IF NOT EXISTS article
     id                BIGINT       NOT NULL AUTO_INCREMENT,
     header            VARCHAR(255) NOT NULL,
     short_description VARCHAR(500) NOT NULL,
-    description       TEXT         NOT NULL,
+    text              TEXT         NOT NULL,
     publish_date      DATE         NOT NULL,
     PRIMARY KEY (id)
 );

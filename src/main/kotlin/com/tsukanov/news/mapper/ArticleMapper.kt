@@ -6,11 +6,13 @@ import com.tsukanov.news.dto.KeywordDto
 import com.tsukanov.news.entity.Article
 import com.tsukanov.news.entity.Author
 import com.tsukanov.news.entity.Keyword
+import java.time.LocalDate
 
 fun Article.toArticleDto(): ArticleDto =
     ArticleDto(
         id = id,
         header = header,
+        text = text,
         shortDescription = shortDescription,
         publishDate = publishDate,
         author = author.map { it.toDto() },
@@ -21,8 +23,9 @@ fun ArticleDto.toArticle(): Article =
     Article(
         id = id,
         header = header,
+        text = text,
         shortDescription = shortDescription,
-        publishDate = publishDate,
+        publishDate = publishDate ?: LocalDate.now(),
         author = author.map { it.toEntity() },
         keyword = keyword.map { it.toEntity() }
     )
